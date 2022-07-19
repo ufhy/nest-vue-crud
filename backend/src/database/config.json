@@ -1,0 +1,8 @@
+{
+  "username": "root",
+  "password": "AllahSWT",
+  "database": "nest_testing",
+  "host": "127.0.0.1",
+  "port": 3306,
+  "dialect": "mysql"
+}
