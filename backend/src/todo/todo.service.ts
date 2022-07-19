@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
@@ -8,7 +8,20 @@ import { Todo } from './entities/todo.entity';
 export class TodoService {
   constructor(@InjectModel(Todo) private readonly todoModel: typeof Todo) {}
 
-  create(createTodoDto: CreateTodoDto) {
+  create(createTodoDto: CreateTodoDto): Promise<Todo> {
+    return new Promise((resolve, reject) => {
+      this.todoModel
+        .create({
+          description: createTodoDto.description,
+          status: createTodoDto.status,
+        })
+        .then((item) => {
+          resolve(item);
+        })
+        .catch(() => {
+          reject('Something wrong');
+        });
+    });
     return this.todoModel.create({
       description: createTodoDto.description,
       status: createTodoDto.status,

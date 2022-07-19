@@ -4,7 +4,7 @@ import Vuetify, {
   VCard, VCardTitle, VCardText, VCardActions, 
   VTabs, VTab, VTabsItems, VTabItem,
   VBtn, VTextField, VRadioGroup, VRadio, VDialog,
-  VDataTable,
+  VDataTable, VAlert,
 } from 'vuetify/lib'
 import App from './App.vue'
 import router from './router'
@@ -19,7 +19,7 @@ Vue.use(Vuetify, {
     VCard, VCardTitle, VCardText, VCardActions, 
     VTabs, VTab, VTabsItems, VTabItem,
     VBtn, VTextField, VRadioGroup, VRadio, VDialog,
-    VDataTable,
+    VDataTable, VAlert,
   }
 });
 const vuetify = new Vuetify({
